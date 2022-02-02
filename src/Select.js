@@ -5,14 +5,14 @@ const Select = (props) => {
     <div className="selection">
       <p className="selection--property">Sélectionnez {props.product}</p>
       <button
-        className={props.isActive ? "active" : ""}
-        onClick={() => props.handleClick(props.price1, props.isActive)}
+        className={props.option1 === 0 ? "active" : ""}
+        onClick={() => props.handleClick1(0, props.price1)}
       >
         {props.property1} - {props.price1} €
       </button>
       <button
-        className={!props.isActive ? "active" : ""}
-        onClick={() => props.handleClick(props.price2, props.isActive)}
+        className={props.option1 === 1 ? "active" : ""}
+        onClick={() => props.handleClick2(1, props.price2)}
       >
         {props.property2} - {props.price2} €
       </button>

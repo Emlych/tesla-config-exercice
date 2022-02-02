@@ -4,13 +4,16 @@ import { useState } from "react";
 
 function App() {
   const [price, setPrice] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [option1, setOption1] = useState(0);
+  const [option2, setOption2] = useState(0);
 
-  const handleClick = (value, status) => {
-    setIsActive(!isActive);
-    if (status) {
-      setPrice(price + value);
-    }
+  const handleClick1 = (option1, optionPrice1) => {
+    setOption1(option1);
+    setPrice(price + optionPrice1);
+  };
+  const handleClick2 = (option2, optionPrice2) => {
+    setOption2(option2);
+    setPrice(price + optionPrice2);
   };
   return (
     <div className="app">
@@ -21,8 +24,8 @@ function App() {
         property2="Performance"
         price1={10}
         price2={2}
-        handleClick={handleClick}
-        isActive={isActive}
+        handleClick1={handleClick1}
+        option1={option1}
       />
 
       <Select
@@ -31,8 +34,8 @@ function App() {
         property2="Noir uni"
         price1={0}
         price2={1000}
-        handleClick={handleClick}
-        isActive={isActive}
+        handleClick2={handleClick2}
+        option2={option2}
       />
       <div className="total">
         <div className="price">{price} €</div>
