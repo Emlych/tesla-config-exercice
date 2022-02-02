@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Select from "./Select";
+import { useState } from "react";
 
 function App() {
+  const [price, setPrice] = useState(0);
+
+  const changePrice = (value) => {
+    setPrice(price + value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Tesla config</h1>
+      <Select
+        product="votre véhicule"
+        property1="Grande autonomie"
+        property2="Performance"
+        price1={10}
+        price2={2}
+        changePrice={changePrice}
+      />
+
+      <Select
+        product="la couleur"
+        property1="Blanc nacré multicouches"
+        property2="Noir uni"
+        price1={0}
+        price2={1000}
+        changePrice={changePrice}
+      />
+      <div className="total">
+        <div className="price">{price} €</div>
+        <button className="blue-button">Buy !</button>
+      </div>
     </div>
   );
 }
