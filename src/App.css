@@ -35,6 +35,6 @@ button {
   background-color: #2d91e1;
   color: white;
 }
-button:active {
-  border-radius: 1px solid red;
+.active {
+  border: 3px solid #2d91e1;
 }

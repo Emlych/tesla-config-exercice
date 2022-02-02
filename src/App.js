@@ -4,9 +4,13 @@ import { useState } from "react";
 
 function App() {
   const [price, setPrice] = useState(0);
+  const [isActive, setIsActive] = useState(false);
 
-  const changePrice = (value) => {
-    setPrice(price + value);
+  const handleClick = (value, status) => {
+    setIsActive(!isActive);
+    if (status) {
+      setPrice(price + value);
+    }
   };
   return (
     <div className="app">
@@ -17,7 +21,8 @@ function App() {
         property2="Performance"
         price1={10}
         price2={2}
-        changePrice={changePrice}
+        handleClick={handleClick}
+        isActive={isActive}
       />
 
       <Select
@@ -26,7 +31,8 @@ function App() {
         property2="Noir uni"
         price1={0}
         price2={1000}
-        changePrice={changePrice}
+        handleClick={handleClick}
+        isActive={isActive}
       />
       <div className="total">
         <div className="price">{price} €</div>
